@@ -4,7 +4,8 @@ apply plugin: "kotlin-kapt"
 apply plugin: 'kotlinx-serialization'
 
 android {
-    compileSdkVersion 33
+    namespace "com.drake.net.sample"
+    compileSdk 33
     signingConfigs {
         signed {
             storeFile file("../signed")
@@ -15,7 +16,7 @@ android {
     }
     defaultConfig {
         applicationId "com.drake.net.sample"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 33
         versionCode 1
         multiDexEnabled true
@@ -34,13 +35,12 @@ android {
         enabled = true
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
-    }
-
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     applicationVariants.all {
